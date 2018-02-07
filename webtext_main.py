@@ -1,32 +1,32 @@
 #!/usr/bin/python3
+
+NETWORK = 'eir' 
+
 import sys
 import configparser
 from pathlib import Path
-from eir import send_webtext
+exec('from ' + NETWORK + ' import send_webtext')
 
 #open ini file containing login details
 path = str(Path.home()) + '/.webtext.ini'
 config = configparser.ConfigParser()
 config.read(path)
 
-if('eir' not in config):
+if(NETWORK not in config):
     #Must create .ini file
-    eir_username = input('eir username: ')
-    eir_password = input('eir password: ')
+    config_username = input( NETWORK + ' username: ')
+    config_password = input( NETWORK + ' password: ')
 
-    config['eir'] = {'username':eir_username,
-                   'password':eir_password}
+    config[NETWORK] = { 'username' : config_username,
+                        'password' : config_password }
 
     with open(path, 'w') as configfile:
         config.write(configfile)
 
-username = config['eir']['username']
-password = config['eir']['password']
+username = config[NETWORK]['username']
+password = config[NETWORK]['password']
 
 if len(sys.argv) < 3:
-    #command line args not supplied - use interactive mode
-    print("Command line argument usage: eir [message text] [number]\n")
-    print("Using interactive mode.\n")
     recipient_number = input("Enter recipient number: ")
     message_text = input("Enter message text: ")
 
