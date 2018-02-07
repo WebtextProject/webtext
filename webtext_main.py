@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-NETWORK = 'eir' 
+NETWORK = 'NAME_OF_NETWORK' 
 
 import sys
 import configparser
