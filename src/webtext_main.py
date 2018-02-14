@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-NETWORK = 'NAME_OF_NETWORK' 
+NETWORK = 'three' 
 
 import sys
 import configparser

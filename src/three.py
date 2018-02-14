@@ -22,7 +22,7 @@ def go_to_webtexting_page(my_session):
 
 def send_three_webtext(message_text, recipient_number, my_session):
     response = my_session.post('https://messaging.three.ie/messages/send',
-                         data={'_token':'setjL1s5ha4NoyxrjqHPcaPfbWjSKx5IrK3A9Z4H',
+                         data={'_token':'',
 	                           'message':message_text,
                                'recipients_contacts[]':'tel:' +
                                recipient_number,
