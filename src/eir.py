@@ -21,6 +21,7 @@ def send_eir_webtext(message_text, recipient_number, my_session, my_number):
     response = my_session.post('https://my.eir.ie/mobile/webtext/mobileNumbers/' + my_number + '/messages',
                          json={"content": message_text,"recipients":[recipient_number]}
         )
+    print(response.text)
     return response.status_code
 
 def send_webtext(username, password, message_text, recipient_number):
